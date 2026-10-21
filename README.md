@@ -102,7 +102,11 @@ provider_installation {
 ```
 
 `tofu` will warn *"development overrides are in effect"* — that is the
-intended setup for a local learning provider.
+intended setup for a local learning provider. Note that with
+`dev_overrides` you **skip `tofu init` entirely**: the provider is
+loaded from disk at plan/apply time, and current OpenTofu (≥ 1.13)
+errors if you run init with overrides active. In registry-based
+projects `tofu init` remains the standard first command.
 
 ## Testing (TDD)
 
