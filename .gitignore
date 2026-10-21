@@ -19,3 +19,5 @@ vendor/
 
 # Kitchen state (local testing)
 .kitchen-state.json
+# generated acceptance-testing CLI config
+.tofurc.acc
