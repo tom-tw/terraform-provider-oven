@@ -1,0 +1,21 @@
+# Build artifacts
+oven-provider
+dist/
+bin/
+
+# Go
+*.test
+*.out
+coverage.txt
+vendor/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+
+# Kitchen state (local testing)
+.kitchen-state.json
