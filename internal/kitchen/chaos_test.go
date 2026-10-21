@@ -119,7 +119,9 @@ func TestMemoryStoreLoadSetRoundTrip(t *testing.T) {
 	if n, ok := s.Load("missing"); ok || n != 0 {
 		t.Errorf("missing key Load = %d, %v; want 0, false", n, ok)
 	}
-	s.Set("k", 7)
+	if err := s.Set("k", 7); err != nil {
+		t.Fatalf("Set: %v", err)
+	}
 	if n, ok := s.Load("k"); !ok || n != 7 {
 		t.Errorf("Load = %d, %v; want 7, true", n, ok)
 	}
@@ -193,8 +195,8 @@ func TestMessageForIsDeterministicAndCatalogued(t *testing.T) {
 	if len(seen) < 3 {
 		t.Errorf("MessageFor should spread across catalog, saw only %d", len(seen))
 	}
-	if MessageFor("same-seed") != MessageFor("same-seed") {
-		t.Error("MessageFor not deterministic")
+	if a := MessageFor("same-seed"); a != MessageFor("same-seed") {
+		t.Errorf("MessageFor not deterministic: %q != %q", a, a)
 	}
 }
 

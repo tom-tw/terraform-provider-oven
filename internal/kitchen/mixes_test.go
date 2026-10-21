@@ -75,10 +75,10 @@ func TestBakeDonenessCategories(t *testing.T) {
 		{180, 30, "static", "golden"},
 		{230, 45, "static", "well-done"}, // sourdough
 		{200, 90, "static", "charcoal"},
-		{160, 60, "static", "well-done"},   // 1.6 * 60 = 96
-		{200, 40, "static", "well-done"},   // 2.0 * 40 = 80
-		{200, 40, "steam", "golden"},       // steam carries heat gently: 68
-		{220, 30, "grill", "well-done"},    // grill scorches harder: 75.9
+		{160, 60, "static", "well-done"}, // 1.6 * 60 = 96
+		{200, 40, "static", "well-done"}, // 2.0 * 40 = 80
+		{200, 40, "steam", "golden"},     // steam carries heat gently: 68
+		{220, 30, "grill", "well-done"},  // grill scorches harder: 75.9
 	}
 	for _, c := range cases {
 		got, err := BakeDoneness(c.tempC, c.minute, c.mode)
